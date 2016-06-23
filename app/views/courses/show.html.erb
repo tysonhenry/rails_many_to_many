@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @course.number %>
+</p>
+
+
+<hr>
+
+<h3>Enrolled Students</h3>
+<% @course.enrollments.each do |enrollment| %>
+  <% if !enrollment.new_record? %>
+    <%= enrollment.student.name %><br>
+  <% end %>
+<% end %>
+<hr>
+<h3>Enroll a student into this course</h3>
+<%= render 'enrollments/form' %>
+<hr>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

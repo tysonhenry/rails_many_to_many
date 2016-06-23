@@ -1,0 +1,8 @@
+<%= form_for([@course,@enrollment]) do |f| %>
+  <div class="field">
+    <%= f.select :student_id, @course.students_not_enrolled %>
+    <%= f.submit "Enroll selected student in this course" %>
+  </div>
+<% end %>
+
+<!-- Request URL:http://104.131.143.14:3000/courses/4/enrollments -->
